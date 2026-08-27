@@ -1,20 +1,21 @@
-import { courts } from '../data/courts'
+import type { Court } from '../types/court'
 import CourtCard from './CourtCard'
 
 type CourtListProps = {
+    courtList: Court[]
     selectedCourtId: string | null
     onSelectCourt: (courtId: string) => void
 }
 
 
-function CourtList({selectedCourtId, onSelectCourt }: CourtListProps) {
+function CourtList({courtList, selectedCourtId, onSelectCourt }: CourtListProps) {
     return (
       <section className="court-list" aria-labelledby="court-list-heading">
         <p className="section-label">Courts near you</p>
         <h2 id="court-list-heading">Barrhaven courts</h2>
 
         <div className="court-list__items">
-          {courts.map((court) => (
+          {courtList.map((court) => (
             <CourtCard 
                 key={court.id} 
                 court={court} 
