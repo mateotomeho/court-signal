@@ -46,15 +46,6 @@ p {
   line-height: 1.5;
 }
 
-.next-step {
-  border: 1px solid #d9e4d5;
-  border-radius: 8px;
-  background: #ffffff;
-  padding: 18px;
-  box-shadow: 0 10px 30px rgba(26, 54, 29, 0.08);
-}
-
-.next-step p:last-child,
 .app-header p:last-child {
   margin-bottom: 0;
   color: #405140;
