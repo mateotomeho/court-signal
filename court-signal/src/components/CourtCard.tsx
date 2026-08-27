@@ -81,9 +81,10 @@ function CourtCard({ court, isSelected, onSelect }: CourtCardProps) {
     const waitText = getWaitText(court.waitingGroups)
 
     return (
-        <article 
-            className={isSelected ? 'court-card court-card--selected' : 'court-card'}
-            onClick={() => onSelect(court.id)}
+        <button
+        type="button"
+        className={isSelected ? 'court-card court-card--selected' : 'court-card'}
+        onClick={() => onSelect(court.id)}
         >
             <h3>{court.name}</h3>
             <p>
@@ -94,7 +95,7 @@ function CourtCard({ court, isSelected, onSelect }: CourtCardProps) {
             </p>
             <p>{waitText}</p>
             <p>{freshnessText}</p>
-        </article>
+        </button>
     )
 }
 

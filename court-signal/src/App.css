@@ -162,11 +162,19 @@ p {
 }
 
 .court-card {
+  width: 100%;
   border: 1px solid #d9e4d5;
   border-radius: 8px;
   background: #ffffff;
   padding: 16px;
+  text-align: left;
+  font: inherit;
   cursor: pointer;
+}
+
+.court-card:focus-visible {
+  outline: 3px solid rgba(47, 158, 68, 0.3);
+  outline-offset: 2px;
 }
 
 .court-card--selected {
