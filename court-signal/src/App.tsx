@@ -104,6 +104,9 @@ function App() {
           />
         </h1>
         <p>Live, community-reported tennis court availability.</p>
+        <p className="app-notice">
+          Note: all 5 listed locations also include pickleball courts.
+        </p>
       </header>
 
     <CourtMap
