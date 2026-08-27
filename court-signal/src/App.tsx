@@ -1,5 +1,6 @@
 import './App.css'
 import CourtList from './components/CourtList'
+import CourtMapPlaceholder from './components/CourtMapPlaceholder'
 
 function App() {
   return (
@@ -10,16 +11,7 @@ function App() {
         <p>Know before you go.</p>
       </header>
 
-      <section className="status-preview" aria-labelledby="availability-heading">
-        <div>
-          <p className="section-label">Today</p>
-          <h2 id="availability-heading">Where can I play tennis right now?</h2>
-        </div>
-        <p className="status-preview__body">
-          Live, community-reported court availability will appear here as we
-          build the MVP.
-        </p>
-      </section>
+      <CourtMapPlaceholder />
 
       <section className="next-step" aria-labelledby="next-step-heading">
         <p className="section-label">Next step</p>
