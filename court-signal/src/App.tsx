@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { courts } from './data/courts'
+import type { Court } from './types/court'
+//import { courts } from './data/courts'
   
 import CourtList from './components/CourtList'
 import CourtMap from './components/CourtMap'
@@ -14,10 +15,11 @@ import {
 } from './api/courts'
 
 
+
 function App() {
   // State variable to keep track of the court list
-  const [courtList, setCourtList] = useState(courts)
-
+  const [courtList, setCourtList] = useState<Court[]>([])
+  
   // State variable to keep track of the selected court ID
   const [selectedCourtId, setSelectedCourtId] = useState<string | null>(null)
   const selectedCourt = courtList.find((court) => court.id === selectedCourtId)

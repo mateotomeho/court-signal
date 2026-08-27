@@ -9,7 +9,7 @@ type CourtMapProps = {
   onSelectCourt: (courtId: string) => void
 }
 
-const barrhavenCenter: [number, number] = [45.279, -75.764]
+const barrhavenCenter: [number, number] = [45.262, -75.717]
 
 // Function to create a custom Leaflet icon for the court markers based on the number of available courts
 function getCourtMarkerIcon(availableCourts: number) {
