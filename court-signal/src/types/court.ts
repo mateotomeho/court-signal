@@ -6,4 +6,8 @@ export type Court = {
     availableCourts: number
     waitingGroups: number
     updatedMinutesAgo: number
+    latitude: number
+    longitude: number   
+    mapXPercent: number
+    mapYPercent: number
 }

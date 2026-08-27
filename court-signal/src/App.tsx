@@ -73,7 +73,11 @@ function App() {
         <p>Know before you go.</p>
       </header>
 
-      <CourtMapPlaceholder />
+      <CourtMapPlaceholder
+        courtList={courtList}
+        selectedCourtId={selectedCourtId}
+        onSelectCourt={setSelectedCourtId}
+      />
 
       <SelectedCourtPanel
         selectedCourt={selectedCourt}

@@ -8,6 +8,10 @@ export const courts: Court[] = [
         availableCourts: 1,
         waitingGroups: 0,
         updatedMinutesAgo: 5,
+        latitude: 45.4215,
+        longitude: -75.6972,
+        mapXPercent: 26,
+        mapYPercent: 34,
     },
     {
         id: 'half-moon-bay-park',
@@ -16,6 +20,10 @@ export const courts: Court[] = [
         availableCourts: 2,
         waitingGroups: 1,   
         updatedMinutesAgo: 70,
+        latitude: 45.251,
+        longitude: -75.773,
+        mapXPercent: 58,
+        mapYPercent: 52,
     },
     {
         id: 'barrhaven-tennis-club',
@@ -24,5 +32,9 @@ export const courts: Court[] = [
         availableCourts: 0,
         waitingGroups: 2,
         updatedMinutesAgo: 2,
+        latitude: 45.283,
+        longitude: -75.741,
+        mapXPercent: 72,
+        mapYPercent: 24,
     }
 ]
