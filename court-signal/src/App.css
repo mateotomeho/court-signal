@@ -155,6 +155,26 @@ p {
   font-weight: 700;
 }
 
+
+/* App messages */
+.app-message {
+  margin: 0;
+  border: 1px solid #d9e4d5;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 12px 14px;
+  color: #405140;
+  font-weight: 700;
+}
+
+.app-message--error {
+  border-color: #e7b5b5;
+  background: #fff5f5;
+  color: #a33a3a;
+}
+
+
+
 /* Court list and cards */
 .court-list__header {
   display: flex;

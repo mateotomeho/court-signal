@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import { courts } from './data/courts'
   
@@ -6,8 +6,12 @@ import CourtList from './components/CourtList'
 import CourtMapPlaceholder from './components/CourtMapPlaceholder'
 import UpdateStatusPanel from './components/UpdateStatusPanel'
 import SelectedCourtPanel from './components/SelectedCourtPanel'
-import { updateCourtReport } from './utils/updateCourtReport'
 
+
+import {
+  createCourtReport,
+  fetchCourtsWithLatestReports,
+} from './api/courts'
 
 
 function App() {
@@ -26,6 +30,27 @@ function App() {
   const [reportWaitingGroups, setReportWaitingGroups] = useState(0)
   //const [reportMessage, setReportMessage] = useState('')
 
+  // State variables to keep track of loading and error states
+  const [isLoadingCourts, setIsLoadingCourts] = useState(true)
+  const [courtsError, setCourtsError] = useState('')
+
+  useEffect(() => {
+    async function loadCourts() {
+      try {
+        const loadedCourts = await fetchCourtsWithLatestReports()
+        setCourtList(loadedCourts)
+        setCourtsError('')
+      } catch (error) {
+        console.error(error)
+        setCourtsError('Could not load courts.')
+      } finally {
+        setIsLoadingCourts(false)
+      }
+    }
+
+    loadCourts()
+  }, [])
+
   // Function to handle the opening of the update panel
   function handleOpenUpdatePanel() {
     if (!selectedCourt) {
@@ -39,25 +64,26 @@ function App() {
   }
 
   // Function to handle the submission of the report
-  function handleSubmitReport() {
+  async function handleSubmitReport() {
     if (!selectedCourt) {
       return
     }
 
-    setCourtList((currentCourts) =>
-      updateCourtReport({
-        courtList: currentCourts,
+    try {
+      await createCourtReport({
         courtId: selectedCourt.id,
         availableCourts: reportAvailableCourts,
         waitingGroups: reportWaitingGroups,
-      }),
-    )
+      })
 
-    /*setReportMessage(
-      `Update saved locally: ${reportAvailableCourts} courts available, ${reportWaitingGroups} groups waiting.`,
-    )*/
-
-    setIsUpdatePanelOpen(false)
+      const loadedCourts = await fetchCourtsWithLatestReports()
+      setCourtList(loadedCourts)
+      setCourtsError('')
+      setIsUpdatePanelOpen(false)
+    } catch (error) {
+      console.error(error)
+      setCourtsError('Could not submit update.')
+    }
   }
 
   return (
@@ -73,6 +99,9 @@ function App() {
         selectedCourtId={selectedCourtId}
         onSelectCourt={setSelectedCourtId}
       />
+
+      {isLoadingCourts && <p className="app-message">Loading courts...</p>}
+      {courtsError && <p className="app-message app-message--error">{courtsError}</p>}
 
       <SelectedCourtPanel
         selectedCourt={selectedCourt}
