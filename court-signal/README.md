@@ -1,75 +1,55 @@
-# React + TypeScript + Vite
+# CourtSignal 🎾
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Know before you go.
 
-Currently, two official plugins are available:
+CourtSignal is a mobile-first tennis court availability PWA. The MVP starts in
+Barrhaven, Ottawa and focuses on one core question:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+> Where can I play tennis right now?
 
-## React Compiler
+Built by Matéo Tomeho.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React
+- TypeScript
+- Vite
+- Regular CSS
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Supabase, PostgreSQL, Leaflet, OpenStreetMap, and Vercel will be added later as
+the MVP grows.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Install dependencies:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Start the local development server:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm run dev
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Build for production:
 
+```bash
+npm run build
+```
+
+## Project Structure
+
+```text
+court-signal/
+├── public/          Static files served directly by Vite
+├── src/             React and CSS source code
+│   ├── App.tsx      Main application component
+│   ├── App.css      Styles for the app component
+│   ├── index.css    Global CSS reset/base styles
+│   └── main.tsx     React entry point
+├── index.html       HTML document and metadata
+├── package.json     Scripts and dependencies
+└── vite.config.ts   Vite configuration
 ```
