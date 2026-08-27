@@ -5,7 +5,6 @@ export function getCourtStatus(availableCourts: number) {
     return {
       label: 'Full',
       icon: '🔴',
-      markerClassName: 'map-marker--full',
     }
   }
 
@@ -13,13 +12,11 @@ export function getCourtStatus(availableCourts: number) {
     return {
       label: 'Almost full',
       icon: '🟡',
-      markerClassName: 'map-marker--almost-full',
     }
   }
 
   return {
     label: 'Available',
     icon: '🟢',
-    markerClassName: 'map-marker--available',
   }
 }

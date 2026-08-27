@@ -3,7 +3,7 @@ import './App.css'
 import { courts } from './data/courts'
   
 import CourtList from './components/CourtList'
-import CourtMapPlaceholder from './components/CourtMapPlaceholder'
+import CourtMap from './components/CourtMap'
 import UpdateStatusPanel from './components/UpdateStatusPanel'
 import SelectedCourtPanel from './components/SelectedCourtPanel'
 
@@ -94,11 +94,11 @@ function App() {
         <p>Live, community-reported tennis court availability.</p>
       </header>
 
-      <CourtMapPlaceholder
-        courtList={courtList}
-        selectedCourtId={selectedCourtId}
-        onSelectCourt={setSelectedCourtId}
-      />
+    <CourtMap
+      courtList={courtList}
+      selectedCourtId={selectedCourtId}
+      onSelectCourt={setSelectedCourtId}
+    />
 
       {isLoadingCourts && <p className="app-message">Loading courts...</p>}
       {courtsError && <p className="app-message app-message--error">{courtsError}</p>}
