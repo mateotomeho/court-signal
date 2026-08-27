@@ -1,4 +1,5 @@
 import type { Court } from '../types/court'
+import { getCourtStatus } from '../utils/getCourtStatus'
 
 // CourtCardProps defines the props (inputs) for the CourtCard component
 type CourtCardProps = {
@@ -14,26 +15,6 @@ type CourtCardProps = {
 //     availableCourts: number
 //     updatedMinutesAgo: number
 // }
-
-// Function getCourtStatus returns the status and icon for a court based on its available courts
-function getCourtStatus(availableCourts: number) {
-    if (availableCourts === 0) {
-        return {
-            label: 'Full',
-            icon: '🔴'
-        }
-    } else if (availableCourts === 1) {
-        return {
-            label: 'Almost full',
-            icon: '🟡'
-        }
-    } else {
-        return {
-            label: 'Available',
-            icon: '🟢'
-        }
-    }
-}
 
 // Function getFreshnessText returns a string indicating how recently the court's availability was updated
 function getFreshnessText(updatedMinutesAgo: number) {

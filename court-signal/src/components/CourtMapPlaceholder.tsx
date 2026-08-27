@@ -1,5 +1,6 @@
 // CourtMapPlaceholder is a React component that displays a placeholder for the court map
 import type { Court } from '../types/court'
+import { getCourtStatus } from '../utils/getCourtStatus'
 
 type CourtMapPlaceholderProps = {
     courtList: Court[]
@@ -7,17 +8,7 @@ type CourtMapPlaceholderProps = {
     onSelectCourt: (courtId: string) => void
 }
 
-function getMarkerClassName(court: Court) {
-  if (court.availableCourts === 0) {
-    return 'map-marker map-marker--full'
-  }
 
-  if (court.availableCourts === 1) {
-    return 'map-marker map-marker--almost-full'
-  }
-
-  return 'map-marker map-marker--available'
-}
 
 function CourtMapPlaceholder({
     courtList,
@@ -32,23 +23,28 @@ function CourtMapPlaceholder({
       </div>
 
       <div className="map-placeholder__surface">
-        {courtList.map((court) => (
-        <button
-            key={court.id}
-            type="button"
-            className={
-                court.id === selectedCourtId
-                ? `${getMarkerClassName(court)} map-marker--selected`
-                : getMarkerClassName(court)
-            }
-            style={{
-                left: `${court.mapXPercent}%`,
-                top: `${court.mapYPercent}%`,
-            }}
-            onClick={() => onSelectCourt(court.id)}
-            aria-label={`Select ${court.name}`}
-        ></button>
-        ))}
+        {courtList.map((court) => {
+            const status = getCourtStatus(court.availableCourts)
+            const markerClassName = `map-marker ${status.markerClassName}`
+
+            return (
+                <button
+                    key={court.id}
+                    type="button"
+                    className={
+                        court.id === selectedCourtId
+                        ? `${markerClassName} map-marker--selected`
+                        : markerClassName
+                    }
+                    style={{
+                        left: `${court.mapXPercent}%`,
+                        top: `${court.mapYPercent}%`,
+                    }}
+                    onClick={() => onSelectCourt(court.id)}
+                    aria-label={`Select ${court.name}`}
+                ></button>
+        )
+        })}
       </div>
     </section>
   )

@@ -6,6 +6,7 @@ import CourtList from './components/CourtList'
 import CourtMapPlaceholder from './components/CourtMapPlaceholder'
 import UpdateStatusPanel from './components/UpdateStatusPanel'
 import SelectedCourtPanel from './components/SelectedCourtPanel'
+import { updateCourtReport } from './utils/updateCourtReport'
 
 
 
@@ -43,18 +44,12 @@ function App() {
       return
     }
 
-    setCourtList((currentCourts) => 
-      currentCourts.map((court) => {
-        if (court.id !== selectedCourt.id) {
-          return court 
-        }
-
-        return {
-          ...court,
-          availableCourts: reportAvailableCourts,
-          waitingGroups: reportWaitingGroups,
-          updatedMinutesAgo: 0,
-        }
+    setCourtList((currentCourts) =>
+      updateCourtReport({
+        courtList: currentCourts,
+        courtId: selectedCourt.id,
+        availableCourts: reportAvailableCourts,
+        waitingGroups: reportWaitingGroups,
       }),
     )
 
