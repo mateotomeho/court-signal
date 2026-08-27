@@ -15,9 +15,34 @@ Built by Matéo Tomeho.
 - TypeScript
 - Vite
 - Regular CSS
+- Supabase and PostgreSQL
+- Leaflet and OpenStreetMap
+- Vercel
 
-Supabase, PostgreSQL, Leaflet, OpenStreetMap, and Vercel will be added later as
-the MVP grows.
+## Current MVP
+
+- View public tennis courts in the Barrhaven/Ottawa area
+- See latest community-reported availability for each court
+- Submit a court status update
+- Persist updates in Supabase so multiple devices see the same data
+- View court locations on a Leaflet map
+
+## Deployment
+
+CourtSignal is deployed with Vercel.
+
+Live app:
+
+```text
+Add Vercel URL here
+```
+
+Required environment variables:
+
+```env
+VITE_SUPABASE_URL=
+VITE_SUPABASE_PUBLISHABLE_KEY=
+```
 
 ## Getting Started
 
@@ -43,13 +68,20 @@ npm run build
 
 ```text
 court-signal/
-├── public/          Static files served directly by Vite
-├── src/             React and CSS source code
-│   ├── App.tsx      Main application component
-│   ├── App.css      Styles for the app component
-│   ├── index.css    Global CSS reset/base styles
-│   └── main.tsx     React entry point
-├── index.html       HTML document and metadata
-├── package.json     Scripts and dependencies
-└── vite.config.ts   Vite configuration
+├── public/            Static files served directly by Vite
+├── src/               React, TypeScript, and CSS source code
+│   ├── api/           Supabase read/write functions
+│   ├── components/    Reusable UI components
+│   ├── data/          Local fallback court data
+│   ├── lib/           Shared library setup, including Supabase client
+│   ├── types/         TypeScript types
+│   ├── utils/         Helper functions
+│   ├── App.tsx        Main application component
+│   ├── App.css        Main application styles
+│   ├── index.css      Global CSS reset/base styles
+│   └── main.tsx       React entry point
+├── supabase/          Database schema and seed SQL
+├── index.html         HTML document and metadata
+├── package.json       Scripts and dependencies
+└── vite.config.ts     Vite configuration
 ```
