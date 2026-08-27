@@ -3,6 +3,8 @@ import type { Court } from '../types/court'
 // CourtCardProps defines the props (inputs) for the CourtCard component
 type CourtCardProps = {
   court: Court
+  isSelected: boolean
+  onSelect: (courtId: string) => void
 }
 
 //OLD CODE
@@ -68,7 +70,7 @@ function getWaitText(waitingGroups: number) {
 }
 
 // CourtCard is a React component that displays information about a court
-function CourtCard({ court }: CourtCardProps) {
+function CourtCard({ court, isSelected, onSelect }: CourtCardProps) {
     // Status & icon variables to determine the availability status of the court
     const status = getCourtStatus(court.availableCourts)
 
@@ -79,7 +81,10 @@ function CourtCard({ court }: CourtCardProps) {
     const waitText = getWaitText(court.waitingGroups)
 
     return (
-        <article className="court-card">
+        <article 
+            className={isSelected ? 'court-card court-card--selected' : 'court-card'}
+            onClick={() => onSelect(court.id)}
+        >
             <h3>{court.name}</h3>
             <p>
                 <span aria-hidden="true">{status.icon}</span> {status.label}

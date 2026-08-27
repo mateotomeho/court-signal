@@ -70,6 +70,20 @@ p {
   font-size: 0.85rem;
 }
 
+/* Selected court section */
+.selected-court {
+  border: 1px solid #d9e4d5;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 14px 16px;
+}
+
+.selected-court p:last-child {
+  margin-bottom: 0;
+  color: #405140;
+  font-weight: 600;
+}
+
 /* Court list and cards */
 .court-list__items {
   display: grid;
@@ -81,6 +95,13 @@ p {
   border-radius: 8px;
   background: #ffffff;
   padding: 16px;
+  cursor: pointer;
+}
+
+.court-card--selected {
+  border-color: #2f9e44;
+  background: #f0f8ef;
+  box-shadow: 0 0 0 2px rgba(47, 158, 68, 0.16);
 }
 
 .court-card h3 {
@@ -97,6 +118,8 @@ p {
 .court-card p:last-child {
   margin-bottom: 0;
 }
+
+
 
 /* Map placeholder */
 .map-placeholder {

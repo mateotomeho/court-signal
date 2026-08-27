@@ -1,8 +1,14 @@
+import { useState } from 'react'
 import './App.css'
 import CourtList from './components/CourtList'
 import CourtMapPlaceholder from './components/CourtMapPlaceholder'
+import { courts } from './data/courts'
+
 
 function App() {
+  const [selectedCourtId, setSelectedCourtId] = useState<string | null>(null)
+  const selectedCourt = courts.find((court) => court.id === selectedCourtId)
+
   return (
     <main className="app-shell">
       <header className="app-header">
@@ -12,6 +18,15 @@ function App() {
       </header>
 
       <CourtMapPlaceholder />
+      <section className="selected-court">
+        <p className="section-label">Selected court</p>
+
+        {selectedCourt ? (
+          <p>{selectedCourt.name}</p>
+        ) : (
+          <p>No court selected yet</p>
+        )}
+      </section>
 
       <section className="next-step" aria-labelledby="next-step-heading">
         <p className="section-label">Next step</p>
@@ -22,7 +37,10 @@ function App() {
         </p>
       </section>
 
-      <CourtList />
+      <CourtList 
+        selectedCourtId={selectedCourtId}
+        onSelectCourt={setSelectedCourtId}
+      />
 
       <footer className="app-footer">
         <span>CourtSignal</span>
