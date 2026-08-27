@@ -12,7 +12,10 @@ function CourtList({courtList, selectedCourtId, onSelectCourt }: CourtListProps)
     return (
       <section className="court-list" aria-labelledby="court-list-heading">
         <p className="section-label">Courts near you</p>
-        <h2 id="court-list-heading">Barrhaven courts</h2>
+        <div className="court-list__header">
+          <h2 id="court-list-heading">Barrhaven courts</h2>
+          <p>{courtList.length} courts</p>
+        </div>
 
         <div className="court-list__items">
           {courtList.map((court) => (

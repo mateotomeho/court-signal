@@ -18,8 +18,8 @@ function CourtMapPlaceholder({
   return (
     <section className="map-placeholder" aria-labelledby="map-heading">
       <div>
-        <p className="section-label">Map</p>
-        <h2 id="map-heading">Barrhaven courts</h2>
+        <p className="section-label">Court map</p>
+        <h2 id="map-heading">Where can I play right now?</h2>
       </div>
 
       <div className="map-placeholder__surface">

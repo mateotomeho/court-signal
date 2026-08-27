@@ -15,7 +15,9 @@ function SelectedCourtPanel({
 
       {selectedCourt ? (
         <>
-          <p>{selectedCourt.name}</p>
+          <p>
+            Ready to report for <strong>{selectedCourt.name}</strong>.
+          </p>
           <button
             type="button"
             className="primary-action"
@@ -25,7 +27,7 @@ function SelectedCourtPanel({
           </button>
         </>
       ) : (
-        <p>No court selected yet</p>
+        <p>Select a court from the map or list.</p>
       )}
     </section>
   )

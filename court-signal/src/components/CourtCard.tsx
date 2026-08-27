@@ -63,19 +63,24 @@ function CourtCard({ court, isSelected, onSelect }: CourtCardProps) {
 
     return (
         <button
-        type="button"
-        className={isSelected ? 'court-card court-card--selected' : 'court-card'}
-        onClick={() => onSelect(court.id)}
+            type="button"
+            className={isSelected ? 'court-card court-card--selected' : 'court-card'}
+            onClick={() => onSelect(court.id)}
         >
-            <h3>{court.name}</h3>
-            <p>
-                <span aria-hidden="true">{status.icon}</span> {status.label}
-            </p>
-            <p>
+            <div className="court-card__header">
+                <h3>{court.name}</h3>
+                <p className="court-card__status">
+                    <span aria-hidden="true">{status.icon}</span> {status.label}
+                </p>
+            </div>
+
+            <p className="court-card__availability">
                 {court.availableCourts} of {court.totalCourts} courts available
             </p>
-            <p>{waitText}</p>
-            <p>{freshnessText}</p>
+
+            <p className="court-card__meta">
+                {waitText} · {freshnessText}
+            </p>
         </button>
     )
 }

@@ -156,6 +156,25 @@ p {
 }
 
 /* Court list and cards */
+.court-list__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.court-list__header h2,
+.court-list__header p {
+  margin: 0 0 12px;
+}
+
+.court-list__header p {
+  color: #687568;
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
 .court-list__items {
   display: grid;
   gap: 12px;
@@ -183,19 +202,36 @@ p {
   box-shadow: 0 0 0 2px rgba(47, 158, 68, 0.16);
 }
 
-.court-card h3 {
-  margin: 0 0 8px;
+.court-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.court-card__header h3 {
+  margin: 0;
   color: #102712;
   font-size: 1.05rem;
 }
 
-.court-card p {
-  margin-bottom: 4px;
+.court-card__status {
+  margin: 0;
+  color: #405140;
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.court-card__availability {
+  margin: 10px 0 4px;
   color: #405140;
 }
 
-.court-card p:last-child {
-  margin-bottom: 0;
+.court-card__meta {
+  margin: 0;
+  color: #687568;
+  font-size: 0.92rem;
 }
 
 

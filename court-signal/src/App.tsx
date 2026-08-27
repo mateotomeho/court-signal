@@ -65,7 +65,7 @@ function App() {
       <header className="app-header">
         <p className="app-kicker">Now testing in Barrhaven, Ottawa</p>
         <h1>CourtSignal</h1>
-        <p>Know before you go.</p>
+        <p>Live, community-reported tennis court availability.</p>
       </header>
 
       <CourtMapPlaceholder
