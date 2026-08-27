@@ -128,6 +128,25 @@ function App() {
         onSelectCourt={setSelectedCourtId}
       />
 
+      <section className="about-section">
+        <h2>About CourtSignal</h2>
+        <p>
+          CourtSignal was built by Matéo Tomeho, a 3rd year Computer Engineering student at
+          the University of Toronto with a minor in AI and Business certificate. I enjoy building software and hardware 
+          projects, and staying active through sports, which is why I wanted to make
+          it easier for tennis players in Ottawa to quickly see which public courts
+          may be available before leaving home.
+        </p>
+        <p>
+          This is an early version of the project. If you have feedback, corrections,
+          or court suggestions, you can reach me at:
+        </p>
+        <a href="mailto:courtsignalapp@gmail.com">courtsignalapp@gmail.com</a>
+        <a href="https://www.linkedin.com/in/mateo-tomeho/">
+          Connect with me on LinkedIn
+        </a>
+      </section>
+
       <footer className="app-footer">
         <span>CourtSignal</span>
         <span>Built by Matéo Tomeho</span>
