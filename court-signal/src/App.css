@@ -31,8 +31,22 @@ p {
 h1 {
   margin-bottom: 8px;
   color: #0d250f;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 2.7rem;
   line-height: 1;
+}
+
+.brand-logo {
+  width: 42px;
+  height: 48px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.brand-highlight {
+  color: #2f9e44;
 }
 
 h2 {

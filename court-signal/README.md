@@ -34,7 +34,7 @@ CourtSignal is deployed with Vercel.
 Live app:
 
 ```text
-Add Vercel URL here
+https://courtsignal-app.vercel.app/
 ```
 
 Required environment variables:

@@ -92,7 +92,17 @@ function App() {
     <main className="app-shell">
       <header className="app-header">
         <p className="app-kicker">Now testing in Barrhaven, Ottawa</p>
-        <h1>CourtSignal</h1>
+        <h1>
+          <span>
+            Court<span className="brand-highlight">Signal</span>
+          </span>
+          <img
+            src="/favicon_courtsignal_nobackground.png"
+            alt=""
+            className="brand-logo"
+            aria-hidden="true"
+          />
+        </h1>
         <p>Live, community-reported tennis court availability.</p>
       </header>
 
