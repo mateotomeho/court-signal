@@ -12,8 +12,8 @@ type CourtMapProps = {
 const barrhavenCenter: [number, number] = [45.262, -75.717]
 
 // Function to create a custom Leaflet icon for the court markers based on the number of available courts
-function getCourtMarkerIcon(availableCourts: number) {
-  const status = getCourtStatus(availableCourts)
+function getCourtMarkerIcon(availableCourts: number, updatedMinutesAgo: number) {
+  const status = getCourtStatus(availableCourts, updatedMinutesAgo)
   const statusClassName = status.label.toLowerCase().replaceAll(' ', '-')
 
   return L.divIcon({
@@ -46,13 +46,13 @@ function CourtMap({ courtList, onSelectCourt }: CourtMapProps) {
         />
 
         {courtList.map((court) => {
-          const status = getCourtStatus(court.availableCourts)
+          const status = getCourtStatus(court.availableCourts, court.updatedMinutesAgo)
 
           return (
             <Marker
               key={court.id}
               position={[court.latitude, court.longitude]}
-              icon={getCourtMarkerIcon(court.availableCourts)}
+              icon={getCourtMarkerIcon(court.availableCourts, court.updatedMinutesAgo)}
               eventHandlers={{
                 click: () => onSelectCourt(court.id),
               }}

@@ -1,6 +1,14 @@
-// Function to get the court status based on the number of available courts
+const staleReportLimitMinutes = 240
 
-export function getCourtStatus(availableCourts: number) {
+// Function to get the court status based on the number of available courts
+export function getCourtStatus(availableCourts: number, updatedMinutesAgo: number) {
+  if (updatedMinutesAgo >= staleReportLimitMinutes) {
+    return {
+      label: 'Unknown',
+      icon: '⚪',
+    }
+  }
+
   if (availableCourts === 0) {
     return {
       label: 'Full',

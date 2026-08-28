@@ -347,6 +347,10 @@ p {
   background: #d64545;
 }
 
+.court-map-marker__pin--unknown {
+  background: #8a958a;
+}
+
 @media (min-width: 720px) {
   .app-shell {
     padding-block: 40px;

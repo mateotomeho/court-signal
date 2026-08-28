@@ -18,6 +18,10 @@ type CourtCardProps = {
 
 // Function getFreshnessText returns a string indicating how recently the court's availability was updated
 function getFreshnessText(updatedMinutesAgo: number) {
+    if (updatedMinutesAgo >= 240) {
+        return 'No recent update'
+    }
+
     if (updatedMinutesAgo === 0) {
         return 'Updated just now'
     }
@@ -53,7 +57,7 @@ function getWaitText(waitingGroups: number) {
 // CourtCard is a React component that displays information about a court
 function CourtCard({ court, isSelected, onSelect }: CourtCardProps) {
     // Status & icon variables to determine the availability status of the court
-    const status = getCourtStatus(court.availableCourts)
+    const status = getCourtStatus(court.availableCourts, court.updatedMinutesAgo)
 
     // Freshness text variable to determine how recently the court's availability was updated
     const freshnessText = getFreshnessText(court.updatedMinutesAgo)
